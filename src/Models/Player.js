@@ -3,6 +3,6 @@ export default class Player {
         this.name = name;
         this.cash = 1000;
         this.properties = []
-        this.currentTile = 0
+        this.position = 0
     }
 }

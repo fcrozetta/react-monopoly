@@ -22,6 +22,7 @@ export default class GamePanel extends React.Component{
         this.update = this.update.bind(this)
         this.endTurn = this.endTurn.bind(this)
         this.rollDice = this.rollDice.bind(this)
+        this.onPlayerMove = this.onPlayerMove.bind(this)
     }
 
     classes="box"
@@ -38,10 +39,17 @@ export default class GamePanel extends React.Component{
     }
 
     endTurn(e){
+        let players = this.state.players
+        if (this.state.isPlayer1) {
+            players[0] = this.currentPlayer
+        }else{
+            players[1] = this.currentPlayer
+        }
         this.setState({
             isPlayer1: !this.state.isPlayer1,
             hasDiceRoll:true,
-            hasBuyOption:false
+            hasBuyOption:false,
+            players: players
         })
 
     }
@@ -50,12 +58,18 @@ export default class GamePanel extends React.Component{
     rollDice(e){
         this.dice.roll();
         this.setState({hasDiceRoll: false})
+        this.onPlayerMove(this.dice.currentNumber)
     }
 
-    // TODO: implement this function
-    movePlayer(player){
-        
-        
+    // Sends event to Board
+    onPlayerMove(diceNumber){
+        let nextPosition = this.currentPlayer.position + diceNumber;
+        if (nextPosition > 15) {
+            nextPosition -= 16
+            this.currentPlayer.cash += 500
+        }
+        this.currentPlayer.position = nextPosition        
+        this.props.onPlayerMove({isPlayer1:this.state.isPlayer1, position:this.currentPlayer.position});
     }
 
     render(){
@@ -66,7 +80,7 @@ export default class GamePanel extends React.Component{
         // conditional rendering for dice roll
         if (this.state.hasDiceRoll) {
             diceOption = <div className="columns">
-                <div className="column is-12"><button className="button is-info" onClick={this.rollDice}>Roll Dice</button></div>
+                <div className="column is-12"><button className="button is-info" onClick={this.rollDice}>Roll Dice & move</button></div>
             </div>
         }else{
             diceOption = <div className="columns">
@@ -89,9 +103,11 @@ export default class GamePanel extends React.Component{
             <div className="columns">
                 <h2 className="column is-12">Properties: {this.currentPlayer.properties.length}</h2>
             </div>
-            <div className="columns">
-                <div className="column">Player choices</div>
-            </div>
+            {/* <div className="columns">
+                <div className="column">DEBUG_OPTIONS</div>
+                <div className="column"><button className="button is-danger" onClick={this.onPlayerMove}>onPlayerMove</button></div>
+
+            </div> */}
 
             {diceOption}
 

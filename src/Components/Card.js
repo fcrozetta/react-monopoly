@@ -7,7 +7,7 @@ export default class TileCard extends React.Component{
         position:"relative",
         top:"0",
         margin:"0",
-        backgroundColor:"blue",
+        backgroundColor:"cyan",
         height:"100%",
     }
 
