@@ -1,0 +1,15 @@
+{
+  "main.css": "/react-monopoly/static/css/main.d0b2afdd.chunk.css",
+  "main.js": "/react-monopoly/static/js/main.b7902917.chunk.js",
+  "main.js.map": "/react-monopoly/static/js/main.b7902917.chunk.js.map",
+  "runtime~main.js": "/react-monopoly/static/js/runtime~main.1781a95b.js",
+  "runtime~main.js.map": "/react-monopoly/static/js/runtime~main.1781a95b.js.map",
+  "static/css/2.5a9685bf.chunk.css": "/react-monopoly/static/css/2.5a9685bf.chunk.css",
+  "static/js/2.9fb8ac8b.chunk.js": "/react-monopoly/static/js/2.9fb8ac8b.chunk.js",
+  "static/js/2.9fb8ac8b.chunk.js.map": "/react-monopoly/static/js/2.9fb8ac8b.chunk.js.map",
+  "index.html": "/react-monopoly/index.html",
+  "precache-manifest.fb5120308d711cb3c52b220ff9242199.js": "/react-monopoly/precache-manifest.fb5120308d711cb3c52b220ff9242199.js",
+  "service-worker.js": "/react-monopoly/service-worker.js",
+  "static/css/2.5a9685bf.chunk.css.map": "/react-monopoly/static/css/2.5a9685bf.chunk.css.map",
+  "static/css/main.d0b2afdd.chunk.css.map": "/react-monopoly/static/css/main.d0b2afdd.chunk.css.map"
+}
